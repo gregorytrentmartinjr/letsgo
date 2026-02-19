@@ -12,7 +12,6 @@ makepkg -si
 # Install limine and add custom background color
 yay -S limine
 echo -e '\tbackground_color 32,29,35' | sudo tee -a /boot/limine/limine.conf > /dev/null
-sudo limine-install
 
 # Install sddm and necessary Qt5 dependencies for Pixie SDDM theme
 sudo pacman -S --needed sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
