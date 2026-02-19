@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# Update system and install essential packages
+sudo pacman -Syu
+sudo pacman -S base-devel git
+
+# Clone yay (AUR helper) into ~/.cache and build it
+git clone https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD ~/.cache/yay
+cd ~/.cache/yay
+makepkg -si
+
+# Install limine and add custom background color
+yay -S limine
+echo -e '\tbackground_color 32,29,35' | sudo tee -a /boot/limine/limine.conf > /dev/null
+sudo limine-install
+
+# Install sddm and necessary Qt5 dependencies for Pixie SDDM theme
+sudo pacman -S --needed sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
+
+# Install  Pixie SDDM theme
+git clone https://github.com/xCaptaiN09/pixie-sddm.git ~/.cache/pixie-sddm
+cd ~/.cache/pixie-sddm
+sudo ./install.sh
+sudo systemctl enable sddm  # Enable SDDM to start on boot.
+
+# Install Hyprland compositor
+sudo pacman -S hyprland
+
+# Clone Hyprland configuration files
+git clone -b custom https://github.com/gregorytrentmartinjr/dots-hyprland ~/.cache/dots-hyprland
+
+# Check if the background image exists in ~/.cache and copy it to SDDM theme
+# If the background image is found, copy it to the appropriate location for SDDM theme.
+# This step assumes the image is located at ~/.cache/letsgo/background.jpg.
+if [ -f ~/.cache/letsgo/background.jpg ]; then
+    sudo cp ~/.cache/letsgo/background.jpg /usr/share/sddm/themes/pixie/assets/background.jpg
+else
+    echo "Background image not found!"  # Print a message if the image is not found.
+fi
+
+# This installs topgrade (for upgrading packages), mpvpaper (wallpaper manager), and fastfetch (system info tool).
+yay -S topgrade mpvpaper fastfetch
+
+# Install graphics-related packages
+sudo pacman -S mesa vulkan-radeon libva libva-mesa-driver libva-utils libxcrypt-compat
+
+# Install specific packages from Arch Linux archive
+sudo pacman -U https://archive.archlinux.org/packages/h/hsa-rocr/hsa-rocr-7.1.1-2-x86_64.pkg.tar.zst \
+                https://archive.archlinux.org/packages/s/spirv-llvm-translator/spirv-llvm-translator-21.1.3-1-x86_64.pkg.tar.zst \
+                https://archive.archlinux.org/packages/r/rocminfo/rocminfo-7.1.1-1-x86_64.pkg.tar.zst \
+                https://archive.archlinux.org/packages/r/rocm-core/rocm-core-7.1.1-1-x86_64.pkg.tar.zst \
+                https://archive.archlinux.org/packages/r/rocm-device-libs/rocm-device-libs-2%3A7.1.1-2-x86_64.pkg.tar.zst \
+                https://archive.archlinux.org/packages/r/rocm-opencl-runtime/rocm-opencl-runtime-7.1.1-1-x86_64.pkg.tar.zst \
+                https://archive.archlinux.org/packages/r/rocm-llvm/rocm-llvm-2%3A7.1.1-2-x86_64.pkg.tar.zst
+
+# Sets up the custom Hyprland configuration.
+cd ~/.cache/dots-hyprland
+./setup install
+
+# Update user directories and set MIME types
+# This step ensures Nautilus handles directories by default for your system's mime-type associations.
+xdg-mime default org.gnome.Nautilus.desktop inode/directory
+xdg-user-dirs-update
+
+# This group of commands sets up Flatpak package management and adds the Flathub repository for accessing Flatpak apps.
+sudo pacman -S flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo pacman -S gnome-software
+
+# Run topgrade to upgrade everything
+topgrade
