@@ -9,24 +9,6 @@ git clone https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD ~/.cache/yay
 cd ~/.cache/yay
 makepkg -si --noconfirm
 
-# Install limine and add custom background color
-yay -S --noconfirm limine
-sudo sh -c "echo -e '\
-term_palette: 303446;e78284;a6d189;e5c890;8caaee;f4b8e4;81c8be;c6d0f5\n\
-term_palette_bright: 626880;e78284;a6d189;e5c890;8caaee;f4b8e4;81c8be;c6d0f5\n\
-term_background: 303446\n\
-term_foreground: c6d0f5\n\
-term_background_bright: 626880\n\
-term_foreground_bright: c6d0f5\n' | cat - /boot/limine/limine.conf > /tmp/limine.conf && sudo mv /tmp/limine.conf /boot/limine/limine.conf"
-
-# Install plymouth theme and rebuild the kernel
-sudo pacman -S --noconfirm plymouth
-yay -S --noconfirm plymouth-theme-cuts-alt-git
-sudo plymouth-set-default-theme -R cuts_alt
-sudo sed -i '/^HOOKS=/ s/\(base udev\)/\1 plymouth/' /etc/mkinitcpio.conf
-sudo sed -i '/^ *cmdline:/ s/$/ quiet splash plymouth.delay=5/' /boot/limine/limine.conf
-sudo mkinitcpio -P
-
 # Install sddm and necessary Qt5 dependencies for Pixie SDDM theme
 sudo pacman -S --needed --noconfirm sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
 
