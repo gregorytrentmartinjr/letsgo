@@ -22,6 +22,7 @@ term_foreground_bright: c6d0f5\n' | cat - /boot/limine/limine.conf > /tmp/limine
 # Install plymouth theme and rebuild the kernel
 sudo pacman -S --noconfirm plymouth
 yay -S --noconfirm plymouth-theme-cuts-alt-git
+sudo plymouth-set-default-theme -R cuts_alt
 sudo sed -i '/^HOOKS=/ s/\(base udev\)/\1 plymouth/' /etc/mkinitcpio.conf
 sudo sed -i '/^ *cmdline:/ s/$/ quiet splash plymouth.delay=5/' /boot/limine/limine.conf
 sudo mkinitcpio -P
