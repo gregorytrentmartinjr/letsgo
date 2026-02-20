@@ -62,7 +62,7 @@ sudo pacman -S --needed --sudoloop --noconfirm mesa vulkan-radeon libva libva-me
 # MY OOB Setup
 sudo cp "$HOME/.cache/letsgo/monitors.conf" "$HOME/.config/hypr/monitors.conf"
 yay -Rdd --sudoloop --noconfirm google-chrome
-sudo pacman -S --needed --sudoloop --noconfirm firefox
+sudo pacman -S --needed --noconfirm firefox
 yay -S --needed --sudoloop --noconfirm steam obs-studio obs-vkcapture lib32-obs-vkcapture visual-studio-code-bin github-desktop-bin
 
 # Install openjdk for Davinci Resolve
