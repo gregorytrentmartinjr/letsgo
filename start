@@ -4,6 +4,8 @@
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm base-devel git
 
+# install new base commands
+sudo pacman -S --noconfirm less clinfo
 
 # Install sddm and necessary Qt5 dependencies for Pixie SDDM theme
 sudo pacman -S --needed --noconfirm sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
