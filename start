@@ -28,6 +28,11 @@ yay -S --noconfirm topgrade mpvpaper fastfetch
 xdg-mime default org.gnome.Nautilus.desktop inode/directory
 xdg-user-dirs-update
 
+# Set up GNOME Software with Flatpak and AppStream
+sudo pacman -S --noconfirm gnome-software appstream appstream-glib flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo appstreamcli refresh --force
+
 # Install graphics-related packages
 sudo pacman -S --noconfirm mesa vulkan-radeon libva libva-mesa-driver lib32-vulkan-radeon libva-utils libxcrypt-compat
 
@@ -45,10 +50,6 @@ https://archive.archlinux.org/packages/r/rocm-llvm/rocm-llvm-2%3A7.1.1-2-x86_64.
 cd ~/.cache/dots-hyprland
 ./setup install
 
-# This group of commands sets up Flatpak package management and adds the Flathub repository for accessing Flatpak apps.
-sudo pacman -S --noconfirm flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo pacman -S --noconfirm gnome-software
 
 # MY OOB Setup
 yay -S davinci-resolve-checker-git steam obs-studio obs-vkcapture lib32-obs-vkcapture visual-studio-code-bin github-desktop
