@@ -17,7 +17,7 @@ sudo pacman -S --needed --sudoloop --noconfirm sddm qt5-graphicaleffects qt5-qui
 # Install Pixie SDDM theme
 git clone https://github.com/xCaptaiN09/pixie-sddm.git "$CACHE/pixie-sddm"
 cd "$CACHE/pixie-sddm"
-sudo ./install.sh
+echo -e "y" | sudo ./install.sh
 sudo cp "$HOME/.cache/letsgo/background.jpg" /usr/share/sddm/themes/pixie/assets/background.jpg
 sudo systemctl enable sddm  # Enable SDDM to start on boot.
 
@@ -27,7 +27,7 @@ sudo pacman -S --sudoloop --noconfirm hyprland
 # Setup custom Hyprland configuration
 git clone -b custom https://github.com/gregorytrentmartinjr/dots-hyprland "$CACHE/dots-hyprland"
 cd "$CACHE/dots-hyprland"
-./setup install
+echo -e "\n\n\n\nn\n" | ./setup install
 
 # Install topgrade (for upgrading packages), mpvpaper (wallpaper manager), and fastfetch (system info tool)
 yay -S --sudoloop --noconfirm topgrade mpvpaper fastfetch
