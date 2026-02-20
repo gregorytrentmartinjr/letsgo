@@ -4,10 +4,6 @@
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm base-devel git
 
-# Clone yay (AUR helper) into ~/.cache and build it
-git clone https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD ~/.cache/yay
-cd ~/.cache/yay
-makepkg -si --noconfirm
 
 # Install sddm and necessary Qt5 dependencies for Pixie SDDM theme
 sudo pacman -S --needed --noconfirm sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
