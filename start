@@ -54,5 +54,10 @@ sudo pacman -S --noconfirm flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo pacman -S --noconfirm gnome-software
 
+# MY OOB Setup
+mkdir -p /home/itsjustdroid/.cache/yay/davinci-resolve-studio
+wget -P /home/itsjustdroid/.cache/yay/davinci-resolve-studio https://swr.cloud.blackmagicdesign.com/DaVinciResolve/v20.3.2/DaVinci_Resolve_Studio_20.3.2_Linux.zip
+yay -S davinci-resolve-checker-git davinci-resolve-studio davinci-ffmpeg-encoder-plugin steam obs-studio obs-vkcapture lib32-obs-vkcapture visual-studio-code-bin github-desktop
+
 # Run topgrade to upgrade everything
 topgrade
