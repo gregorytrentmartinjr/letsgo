@@ -5,14 +5,14 @@ export CACHE="$HOME/.cache/setup"
 mkdir -p "$CACHE"
 
 # Update system and install essential packages
-sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm base-devel git
+sudo pacman -Syu --sudoloop --noconfirm
+sudo pacman -S --sudoloop --noconfirm base-devel git
 
 # install new base commands
-sudo pacman -S --noconfirm less clinfo
+sudo pacman -S --sudoloop --noconfirm less clinfo
 
 # Install sddm and necessary Qt5 dependencies for Pixie SDDM theme
-sudo pacman -S --needed --noconfirm sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
+sudo pacman -S --needed --sudoloop --noconfirm sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
 
 # Install Pixie SDDM theme
 git clone https://github.com/xCaptaiN09/pixie-sddm.git "$CACHE/pixie-sddm"
@@ -22,7 +22,7 @@ sudo cp "$HOME/.cache/letsgo/background.jpg" /usr/share/sddm/themes/pixie/assets
 sudo systemctl enable sddm  # Enable SDDM to start on boot.
 
 # Install Hyprland compositor
-sudo pacman -S --noconfirm hyprland
+sudo pacman -S --sudoloop --noconfirm hyprland
 
 # Setup custom Hyprland configuration
 git clone -b custom https://github.com/gregorytrentmartinjr/dots-hyprland "$CACHE/dots-hyprland"
@@ -30,31 +30,31 @@ cd "$CACHE/dots-hyprland"
 ./setup install
 
 # Install topgrade (for upgrading packages), mpvpaper (wallpaper manager), and fastfetch (system info tool)
-yay -S --noconfirm topgrade mpvpaper fastfetch
+yay -S --sudoloop --noconfirm topgrade mpvpaper fastfetch
 
 # Update user directories and MIME types
 xdg-mime default org.gnome.Nautilus.desktop inode/directory
 xdg-user-dirs-update
 
 # Set up GNOME Software with Flatpak and AppStream
-sudo pacman -S --noconfirm gnome-software appstream appstream-glib flatpak
+sudo pacman -S --sudoloop --noconfirm gnome-software appstream appstream-glib flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo appstreamcli refresh --force
 
 # Install graphics-related packages
-sudo pacman -S --noconfirm mesa vulkan-radeon libva libva-mesa-driver lib32-vulkan-radeon libva-utils libxcrypt-compat
+sudo pacman -S --sudoloop --noconfirm mesa vulkan-radeon libva libva-mesa-driver lib32-vulkan-radeon libva-utils libxcrypt-compat
 
 # MY OOB Setup
 sudo cp "$HOME/.cache/letsgo/monitors.conf" "$HOME/.config/hypr/monitors.conf"
-yay -Rdd --noconfirm google-chrome
-sudo pacman -S --noconfirm firefox
-yay -S --noconfirm steam obs-studio obs-vkcapture lib32-obs-vkcapture visual-studio-code-bin github-desktop-bin
+yay -Rdd --sudoloop --noconfirm google-chrome
+sudo pacman -S --sudoloop --noconfirm firefox
+yay -S --sudoloop --noconfirm steam obs-studio obs-vkcapture lib32-obs-vkcapture visual-studio-code-bin github-desktop-bin
 
 # Install openjdk for Davinci Resolve
-sudo pacman -S --noconfirm jdk-openjdk
+sudo pacman -S --sudoloop --noconfirm jdk-openjdk
 
 # Install ROCm packages (simplified, same as before)
-sudo pacman -U --noconfirm \
+sudo pacman -U --sudoloop --noconfirm \
 https://archive.archlinux.org/packages/h/hsa-rocr/hsa-rocr-7.1.1-2-x86_64.pkg.tar.zst \
 https://archive.archlinux.org/packages/s/spirv-llvm-translator/spirv-llvm-translator-21.1.3-1-x86_64.pkg.tar.zst \
 https://archive.archlinux.org/packages/r/rocminfo/rocminfo-7.1.1-1-x86_64.pkg.tar.zst \
@@ -64,9 +64,9 @@ https://archive.archlinux.org/packages/r/rocm-opencl-runtime/rocm-opencl-runtime
 https://archive.archlinux.org/packages/r/rocm-llvm/rocm-llvm-2%3A7.1.1-2-x86_64.pkg.tar.zst
 
 # Install Davinci Resolve
-yay -S --noconfirm davinci-resolve-studio
+yay -S --sudoloop --noconfirm davinci-resolve-studio
 wget -O $HOME/.cache/yay/davinci-resolve-studio/ 'https://swr.cloud.blackmagicdesign.com/DaVinciResolve/v20.3.2/DaVinci_Resolve_Studio_20.3.2_Linux.zip?verify=1771579766-700JDc1UEcpiX%2BTWfQfuAnZNdz62Z%2F1W%2Bh%2F4Us6Hb%2F8%3D'
-yay -S --noconfirm davinci-resolve-studio
+yay -S --sudoloop --noconfirm davinci-resolve-studio
 
 # Install Davinci Resolve VAAPI plugin
 sudo unzip -o "$HOME/.cache/letsgo/vaapi_encoder.dvcp.bundle.zip" -d /opt/resolve/IOPlugins/
