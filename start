@@ -4,6 +4,27 @@
 export CACHE="$HOME/.cache/setup"
 mkdir -p "$CACHE"
 
+# Optimize pacman configuration
+sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+sudo sed -i 's/^#ParallelDownloads.*/ParallelDownloads = 15/' /etc/pacman.conf
+if ! grep -q "ILoveCandy" /etc/pacman.conf; then
+  sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
+fi
+
+# Optimize makepkg for all CPU cores
+CORES=$(nproc)
+if grep -q "^MAKEFLAGS=" /etc/makepkg.conf; then
+  sudo sed -i "s/^MAKEFLAGS=.*/MAKEFLAGS=\"-j$CORES\"/" /etc/makepkg.conf
+else
+  sudo sed -i "s/^#MAKEFLAGS=.*/MAKEFLAGS=\"-j$CORES\"/" /etc/makepkg.conf
+fi
+
+if grep -q "^COMPRESSXZ=" /etc/makepkg.conf; then
+  sudo sed -i "s|^COMPRESSXZ=.*|COMPRESSXZ=(xz -c -T $CORES -z -)|" /etc/makepkg.conf
+else
+  echo "COMPRESSXZ=(xz -c -T $CORES -z -)" | sudo tee -a /etc/makepkg.conf > /dev/null
+fi
+
 # Update system and install essential packages
 sudo pacman -Syu --sudoloop --noconfirm
 sudo pacman -S --sudoloop --noconfirm base-devel git
