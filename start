@@ -35,7 +35,7 @@ fi
 yay -S --noconfirm topgrade mpvpaper fastfetch
 
 # Install graphics-related packages
-sudo pacman -S --noconfirm mesa vulkan-radeon libva libva-mesa-driver libva-utils libxcrypt-compat
+sudo pacman -S --noconfirm mesa vulkan-radeon libva libva-mesa-driver lib32-vulkan-radeon libva-utils libxcrypt-compat
 
 # Install specific packages from Arch Linux archive
 sudo pacman -U --noconfirm \
