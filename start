@@ -18,7 +18,7 @@ sudo pacman -S --needed --noconfirm sddm qt5-graphicaleffects qt5-quickcontrols2
 git clone https://github.com/xCaptaiN09/pixie-sddm.git "$CACHE/pixie-sddm"
 cd "$CACHE/pixie-sddm"
 sudo ./install.sh
-sudo cp $HOME/.cache/letsgo/background.jpg" /usr/share/sddm/themes/pixie/assets/background.jpg
+sudo cp "$HOME/.cache/letsgo/background.jpg" /usr/share/sddm/themes/pixie/assets/background.jpg
 sudo systemctl enable sddm  # Enable SDDM to start on boot.
 
 # Install Hyprland compositor
@@ -45,7 +45,7 @@ sudo appstreamcli refresh --force
 sudo pacman -S --noconfirm mesa vulkan-radeon libva libva-mesa-driver lib32-vulkan-radeon libva-utils libxcrypt-compat
 
 # MY OOB Setup
-sudo cp $HOME/.cache/letsgo/monitors.conf $HOME/.config/hypr/monitors.conf
+sudo cp "$HOME/.cache/letsgo/monitors.conf" "$HOME/.config/hypr/monitors.conf"
 yay -Rdd --noconfirm google-chrome
 sudo pacman -S --noconfirm firefox
 yay -S --noconfirm steam obs-studio obs-vkcapture lib32-obs-vkcapture visual-studio-code-bin github-desktop-bin
