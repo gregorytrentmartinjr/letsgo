@@ -24,6 +24,10 @@ git clone -b custom https://github.com/gregorytrentmartinjr/dots-hyprland ~/.cac
 # This installs topgrade (for upgrading packages), mpvpaper (wallpaper manager), and fastfetch (system info tool).
 yay -S --noconfirm topgrade mpvpaper fastfetch
 
+# Update user directories and MIME types
+xdg-mime default org.gnome.Nautilus.desktop inode/directory
+xdg-user-dirs-update
+
 # Install graphics-related packages
 sudo pacman -S --noconfirm mesa vulkan-radeon libva libva-mesa-driver lib32-vulkan-radeon libva-utils libxcrypt-compat
 
@@ -40,10 +44,6 @@ https://archive.archlinux.org/packages/r/rocm-llvm/rocm-llvm-2%3A7.1.1-2-x86_64.
 # Setup custom Hyprland configuration
 cd ~/.cache/dots-hyprland
 ./setup install
-
-# Update user directories and MIME types
-xdg-mime default org.gnome.Nautilus.desktop inode/directory
-xdg-user-dirs-update
 
 # This group of commands sets up Flatpak package management and adds the Flathub repository for accessing Flatpak apps.
 sudo pacman -S --noconfirm flatpak
