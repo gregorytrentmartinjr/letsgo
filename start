@@ -73,3 +73,8 @@ yay -S --sudoloop --noconfirm davinci-resolve-studio
 
 # Install Davinci Resolve VAAPI plugin
 sudo unzip -o "$HOME/.cache/letsgo/vaapi_encoder.dvcp.bundle.zip" -d /opt/resolve/IOPlugins/
+
+sudo rm -rf "$CACHE"
+sudo rm -rf"$HOME/.cache/letsgo/"
+sudo rm "$HOME/.cache/yay/davinci-resolve-studio/DaVinci_Resolve_Studio_20.3.2_Linux.zip"
+yay -Scc --noconfirm
