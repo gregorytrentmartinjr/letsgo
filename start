@@ -69,5 +69,4 @@ wget -O $HOME/.cache/yay/davinci-resolve-studio/ 'https://swr.cloud.blackmagicde
 yay -S --noconfirm davinci-resolve-studio
 
 # Install Davinci Resolve VAAPI plugin
-wget -O "$CACHE/vaapi_encoder.dvcp.bundle.zip" "https://github.com/nowrep/dvcp-vaapi/releases/download/v0.3/vaapi_encoder.dvcp.bundle.zip"
-sudo unzip -o "$CACHE/vaapi_encoder.dvcp.bundle.zip" -d /opt/resolve/IOPlugins/
+sudo unzip -o "$HOME/.cache/letsgo/vaapi_encoder.dvcp.bundle.zip" -d /opt/resolve/IOPlugins/
