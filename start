@@ -63,6 +63,9 @@ https://archive.archlinux.org/packages/r/rocm-device-libs/rocm-device-libs-2%3A7
 https://archive.archlinux.org/packages/r/rocm-opencl-runtime/rocm-opencl-runtime-7.1.1-1-x86_64.pkg.tar.zst \
 https://archive.archlinux.org/packages/r/rocm-llvm/rocm-llvm-2%3A7.1.1-2-x86_64.pkg.tar.zst
 
+# Install qt5-webengie so resolve doesnt build it
+sudo tar -I zstd -xvf "$HOME/.cache/letsgo/qt5-webengine-5.15.19-4-x86_64.pkg.tar.zst" -C /
+
 # Install Davinci Resolve
 yay -S --sudoloop --noconfirm davinci-resolve-studio
 wget -O $HOME/.cache/yay/davinci-resolve-studio/ 'https://swr.cloud.blackmagicdesign.com/DaVinciResolve/v20.3.2/DaVinci_Resolve_Studio_20.3.2_Linux.zip?verify=1771579766-700JDc1UEcpiX%2BTWfQfuAnZNdz62Z%2F1W%2Bh%2F4Us6Hb%2F8%3D'
