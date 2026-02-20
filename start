@@ -37,7 +37,8 @@ git clone -b custom https://github.com/gregorytrentmartinjr/dots-hyprland "$CACH
 cd "$CACHE/dots-hyprland"
 echo -e "\n\n\n\nn\n" | ./setup install
 
-# Install Pixie SDDM theme
+# Install sddm and Pixie SDDM theme
+sudo pacman -S --needed --noconfirm sddm
 git clone https://github.com/xCaptaiN09/pixie-sddm.git "$CACHE/pixie-sddm"
 cd "$CACHE/pixie-sddm"
 sudo ./install.sh
