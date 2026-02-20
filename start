@@ -32,6 +32,14 @@ sudo pacman -S --noconfirm base-devel git
 # install new base commands
 sudo pacman -S --needed --noconfirm less clinfo
 
+# Install Hyprland compositor
+sudo pacman -S --needed --noconfirm hyprland
+
+# Setup custom Hyprland configuration
+git clone -b custom https://github.com/gregorytrentmartinjr/dots-hyprland "$CACHE/dots-hyprland"
+cd "$CACHE/dots-hyprland"
+echo -e "\n\n\n\nn\n" | ./setup install
+
 # Install sddm and necessary Qt5 dependencies for Pixie SDDM theme
 sudo pacman -S --needed --noconfirm sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
 
@@ -41,14 +49,6 @@ cd "$CACHE/pixie-sddm"
 sudo ./install.sh
 sudo cp "$HOME/.cache/letsgo/background.jpg" /usr/share/sddm/themes/pixie/assets/background.jpg
 sudo systemctl enable sddm  # Enable SDDM to start on boot.
-
-# Install Hyprland compositor
-sudo pacman -S --needed --sudoloop --noconfirm hyprland
-
-# Setup custom Hyprland configuration
-git clone -b custom https://github.com/gregorytrentmartinjr/dots-hyprland "$CACHE/dots-hyprland"
-cd "$CACHE/dots-hyprland"
-echo -e "\n\n\n\nn\n" | ./setup install
 
 # Install topgrade (for upgrading packages), mpvpaper (wallpaper manager), and fastfetch (system info tool)
 yay -S --needed --sudoloop --noconfirm topgrade mpvpaper fastfetch
