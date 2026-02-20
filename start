@@ -65,7 +65,7 @@ https://archive.archlinux.org/packages/r/rocm-llvm/rocm-llvm-2%3A7.1.1-2-x86_64.
 
 # Install Davinci Resolve
 yay -S --noconfirm davinci-resolve-studio
-wget -O $HOME/.cache/yay/davinci-resolve-studio/davinci-resolve-studio.zip 'https://swr.cloud.blackmagicdesign.com/DaVinciResolve/v20.3.2/DaVinci_Resolve_Studio_20.3.2_Linux.zip?verify=1771579766-700JDc1UEcpiX%2BTWfQfuAnZNdz62Z%2F1W%2Bh%2F4Us6Hb%2F8%3D'
+wget -O $HOME/.cache/yay/davinci-resolve-studio/ 'https://swr.cloud.blackmagicdesign.com/DaVinciResolve/v20.3.2/DaVinci_Resolve_Studio_20.3.2_Linux.zip?verify=1771579766-700JDc1UEcpiX%2BTWfQfuAnZNdz62Z%2F1W%2Bh%2F4Us6Hb%2F8%3D'
 yay -S --noconfirm davinci-resolve-studio
 
 # Install Davinci Resolve VAAPI plugin
