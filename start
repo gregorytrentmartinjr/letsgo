@@ -21,7 +21,7 @@ sudo pacman -S --noconfirm hyprland
 # Clone Hyprland configuration files
 git clone -b custom https://github.com/gregorytrentmartinjr/dots-hyprland ~/.cache/dots-hyprland
 
-# This installs topgrade (for upgrading packages), mpvpaper (wallpaper manager), and fastfetch (system info tool).
+# Install topgrade (for upgrading packages), mpvpaper (wallpaper manager), and fastfetch (system info tool)
 yay -S --noconfirm topgrade mpvpaper fastfetch
 
 # Update user directories and MIME types
@@ -36,7 +36,7 @@ sudo appstreamcli refresh --force
 # Install graphics-related packages
 sudo pacman -S --noconfirm mesa vulkan-radeon libva libva-mesa-driver lib32-vulkan-radeon libva-utils libxcrypt-compat
 
-# Install specific packages from Arch Linux archive
+# Install ROCm packages (simplified, same as before)
 sudo pacman -U --noconfirm \
 https://archive.archlinux.org/packages/h/hsa-rocr/hsa-rocr-7.1.1-2-x86_64.pkg.tar.zst \
 https://archive.archlinux.org/packages/s/spirv-llvm-translator/spirv-llvm-translator-21.1.3-1-x86_64.pkg.tar.zst \
