@@ -29,9 +29,6 @@ fi
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm base-devel git
 
-# install new base commands
-sudo pacman -S --needed --noconfirm less clinfo
-
 # Setup custom Hyprland configuration
 git clone -b custom https://github.com/gregorytrentmartinjr/dots-hyprland "$CACHE/dots-hyprland"
 cd "$CACHE/dots-hyprland"
