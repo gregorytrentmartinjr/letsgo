@@ -48,7 +48,6 @@ xdg-mime default org.gnome.Nautilus.desktop inode/directory
 xdg-user-dirs-update
 
 # Set up GNOME Software with Flatpak and AppStream
-sudo pacman -S --needed --noconfirm gnome-software appstream appstream-glib flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo appstreamcli refresh --force
 
