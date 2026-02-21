@@ -30,7 +30,7 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm base-devel git
 
 # Setup custom Hyprland configuration
-git clone -b custom https://github.com/gregorytrentmartinjr/dots-hyprland "$CACHE/dots-hyprland"
+git clone -b newcustom https://github.com/gregorytrentmartinjr/dots-hyprland "$CACHE/dots-hyprland"
 cd "$CACHE/dots-hyprland"
 echo -e "\n\n\n\nn\n" | ./setup install
 
