@@ -51,6 +51,9 @@ xdg-user-dirs-update
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo appstreamcli refresh --force
 
+# Needed for video wallpapers
+yay -S --needed --sudoloop --noconfirm mpvpaper
+
 # Install graphics-related packages
 sudo pacman -S --needed --noconfirm mesa vulkan-radeon libva libva-mesa-driver lib32-vulkan-radeon libva-utils libxcrypt-compat
 
