@@ -43,9 +43,6 @@ sudo ./install.sh
 sudo cp "$HOME/.cache/letsgo/background.jpg" /usr/share/sddm/themes/pixie/assets/background.jpg
 sudo systemctl enable sddm  # Enable SDDM to start on boot.
 
-# Install topgrade (for upgrading packages), mpvpaper (wallpaper manager), and fastfetch (system info tool)
-yay -S --needed --sudoloop --noconfirm topgrade mpvpaper fastfetch
-
 # Update user directories and MIME types
 xdg-mime default org.gnome.Nautilus.desktop inode/directory
 xdg-user-dirs-update
