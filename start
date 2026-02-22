@@ -77,7 +77,7 @@ https://archive.archlinux.org/packages/r/rocm-opencl-runtime/rocm-opencl-runtime
 https://archive.archlinux.org/packages/r/rocm-llvm/rocm-llvm-2%3A7.1.1-2-x86_64.pkg.tar.zst
 
 # Download Davinci Resolve
-wget -O $HOME/Downloads/DaVinci_Resolve_Studio_20.3.2_Linux.zip 'https://swr.cloud.blackmagicdesign.com/DaVinciResolve/v20.3.2/DaVinci_Resolve_Studio_20.3.2_Linux.zip?verify=1771610103-TbsyTsqBH3DXjU2IQB6pKY8DlFARYtqsl1xfxtvHMVQ%3D'
+wget -O $HOME/Downloads/DaVinci_Resolve_Studio_20.3.2_Linux.zip 'https://swr.cloud.blackmagicdesign.com/DaVinciResolve/v20.3.2/DaVinci_Resolve_Studio_20.3.2_Linux.zip?verify=1771738189-drVOHUeZnQOWskVt7NXFl1DAdJJy2vJe2V%2FPGcLGWyo%3D'
 
 # Install Davinci Resolve VAAPI plugin
 sudo mkdir -p /opt/resolve/IOPlugins
