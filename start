@@ -29,6 +29,8 @@ fi
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm base-devel git
 
+yay -S --needed --sudoloop --noconfirm hyprland-git hyprutils-get hyprwayland-scanner-git hyprlang-git aquamarine-git hyprcursor-git hyprgraphics-git hyprland-guiutils-get hyprwire-git hyprtoolkit-git hyprsunset-git
+
 # Setup custom Hyprland configuration
 git clone -b newcustom https://github.com/gregorytrentmartinjr/dots-hyprland "$CACHE/dots-hyprland"
 cd "$CACHE/dots-hyprland"
