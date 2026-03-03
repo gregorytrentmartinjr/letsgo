@@ -29,6 +29,9 @@ fi
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm base-devel git
 
+# Needed for quickshell
+sudo pacman -S --noconfirm vulkan-headers
+
 # Setup custom Hyprland configuration
 git clone -b newcustom https://github.com/gregorytrentmartinjr/dots-hyprland "$CACHE/dots-hyprland"
 cd "$CACHE/dots-hyprland"
